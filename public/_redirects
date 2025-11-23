@@ -1,5 +1,8 @@
-# 301 Redirect to Google Search
-/netlify/:query  https://www.google.com/search?q=:query  301
+# 301 Permanent Redirect
+/old-path /new-path 301
 
-# Proxy Redirect (SPA Fallback)
-/netlify/*  /index.html  200
+# Your requested 301 Redirect
+/netlify/* https://www.google.com/search?q=:splat 301
+
+# Your requested Proxy Redirect (Rewrite)
+/proxy/* https://api.external-service.com/data/:splat 200
